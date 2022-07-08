@@ -2,16 +2,14 @@ import { Injectable } from '@angular/core';
 import { Store, StoreConfig } from '@datorama/akita';
 
 
-export interface GameState {
+export type GameState = {
 	 key: string;
-}
+};
 
 
-export function createInitialState(): GameState {
-	return {
-		key: ''
-	};
-}
+export const createInitialState = (): GameState => ({
+	key: ''
+});
 
 
 @Injectable({ providedIn: 'root' })

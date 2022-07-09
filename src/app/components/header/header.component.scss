@@ -5,4 +5,11 @@ header {
 	background-color: lightgray;
 	align-items: center;
 	justify-content: center;
+
+	a,
+	a:hover,
+	a:active {
+		text-decoration: none;
+		color: black;
+	}
 }

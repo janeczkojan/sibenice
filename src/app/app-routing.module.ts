@@ -4,6 +4,7 @@ import { ViewsModule } from './views/views.module';
 import { HomeViewComponent } from './views/home-view/home-view.component';
 import { GameSettingsViewComponent } from './views/game-settings-view/game-settings-view.component';
 import { GameViewComponent } from './views/game-view/game-view.component';
+import { CanActivateGameViewGuard } from './shared/guards/can-activate-game-view.guard';
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
 	},
 	{
 		path: 'game',
-		component: GameViewComponent
+		component: GameViewComponent,
+		canActivate: [ CanActivateGameViewGuard ]
 	}
 ];
 

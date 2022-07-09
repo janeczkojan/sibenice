@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Query } from '@datorama/akita';
 import { Observable } from 'rxjs';
-import { GameStore, GameState } from './game.store';
+import { map } from 'rxjs/operators';
+import { GameStore, GameState, GameDifficulty } from './game.store';
 
 
 @Injectable()
@@ -12,5 +13,9 @@ export class GameQuery extends Query<GameState> {
 	}
 
 	isLoadingWords$: Observable<boolean> = this.select((state) => state.loadingWords);
+
+	isDifficultySet$: Observable<boolean> = this.select((state) => state.difficulty).pipe(
+		map((difficulty) => difficulty !== GameDifficulty.NotSelected)
+	);
 
 }

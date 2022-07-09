@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
-import { GameDifficulty, GameStatus, GameStore } from './game.store';
+import { GameDifficulty, GameState, GameStatus, GameStore } from './game.store';
 import { WordsApiService } from '../../../api/words-api.service';
 import { switchMap, toArray, tap, filter, map, take } from 'rxjs/operators';
 import { from, of } from 'rxjs';
+
+
+const GAME_CACHE_KEY = 'sbn_gm_cch';
 
 
 @Injectable()
@@ -44,7 +47,7 @@ export class GameService {
 			tap((words) => this.gameStore.update(() => ({ words }))),
 			map((words) => this.getRandomArrayItem(words)),
 			tap((wordGuess) => this.gameStore.update(() => ({ wordGuess }))),
-			tap(() => this.gameStore.update(() => ({ loadingWords: false, status: GameStatus.Started })))
+			tap(() => this.gameStore.update(() => ({ loadingWords: false, status: GameStatus.Started }))),
 		).subscribe();
 	}
 

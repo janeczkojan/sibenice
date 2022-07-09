@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { environment } from '../environments/environment';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { environment } from '../environments/environment';
 	],
 	imports: [
 		BrowserModule,
+		SharedModule,
 		AppRoutingModule,
 		environment.production ? [] : AkitaNgDevtools.forRoot()
 	],

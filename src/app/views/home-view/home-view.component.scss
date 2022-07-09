@@ -3,6 +3,13 @@
 
 	.content {
 		max-width: 1000px;
-		margin: 35px auto;
+		margin: 0 auto;
+		padding: 40px 0;
+
+		.controls {
+			display: flex;
+			justify-content: center;
+			padding-bottom: 40px;
+		}
 	}
 }

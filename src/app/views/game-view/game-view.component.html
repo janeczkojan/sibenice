@@ -1,8 +1,12 @@
 <div id="game-view">
 	<div class="content">
 		<div class="game">
-			<ng-container *ngIf="!(isLoadingWords$ | async)">
-				Hra
+			<ng-container *ngIf="!isLoadingWords">
+				<app-game 
+					[word]="gameQuery.wordGuess$ | async"
+					[guess]="gameQuery.userGuess$ | async"
+					[guessCount]="gameQuery.guessCount$ | async"
+				></app-game>
 			</ng-container>
 		</div>
 	</div>

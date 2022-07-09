@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
+import { CanActivate, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { take, tap, map } from 'rxjs/operators';
 import { GameQuery } from '../../store/game/state/game.query';
@@ -15,7 +15,7 @@ export class CanActivateGameViewGuard implements CanActivate {
 		private readonly router: Router
 	) {}
 
-	canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
+	canActivate(): Observable<boolean> {
 		return this.gameQuery.isDifficultySet$.pipe(
 			take(1),
 			map((isSet) => !!isSet),

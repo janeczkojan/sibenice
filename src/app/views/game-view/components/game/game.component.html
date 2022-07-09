@@ -1,0 +1,9 @@
+<div id="game">
+	<div class="word-block">
+		<span *ngFor="let c of guessArray">{{ c }}</span>
+	</div>
+
+	<div class="image-block">
+		<img [src]="imageSrc" [alt]="imageName">
+	</div>
+</div>

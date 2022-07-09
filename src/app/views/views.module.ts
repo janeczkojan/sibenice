@@ -5,10 +5,12 @@ import { GameSettingsViewComponent } from './game-settings-view/game-settings-vi
 import { GameViewComponent } from './game-view/game-view.component';
 import { StoreModule } from '../store/store.module';
 import { SharedModule } from '../shared/shared.module';
+import { GameComponent } from './game-view/components/game/game.component';
 
 
 @NgModule({
 	declarations: [
+    	GameComponent,
 		HomeViewComponent,
   		GameSettingsViewComponent,
   		GameViewComponent

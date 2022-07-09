@@ -3,9 +3,7 @@ import { GameDifficulty, GameState, GameStatus, GameStore } from './game.store';
 import { WordsApiService } from '../../../api/words-api.service';
 import { switchMap, toArray, tap, filter, map, take } from 'rxjs/operators';
 import { from, of } from 'rxjs';
-
-
-const GAME_CACHE_KEY = 'sbn_gm_cch';
+import { GameQuery } from './game.query';
 
 
 @Injectable()
@@ -13,8 +11,17 @@ export class GameService {
 
 	constructor(
 		private readonly gameStore: GameStore,
+		private readonly gameQuery: GameQuery,
 		private readonly wordsApiService: WordsApiService
 	) {}
+
+	incrementGuessCount() {
+		this.gameStore.update((state) => ({ guessCount: state.guessCount + 1 }));
+	}
+
+	resetGuessCount() {
+		this.gameStore.update(() => ({ guessCount: 0 }));
+	}
 
 	setGameStatus(status: GameStatus) {
 		this.gameStore.update(() => ({ status }))
@@ -26,6 +33,10 @@ export class GameService {
 
 	finishGame() {
 		this.gameStore.update(() => ({ status: GameStatus.Finished }));
+	}
+
+	guessWord() {
+
 	}
 
 	loadWords() {
@@ -46,9 +57,19 @@ export class GameService {
 			)),
 			tap((words) => this.gameStore.update(() => ({ words }))),
 			map((words) => this.getRandomArrayItem(words)),
-			tap((wordGuess) => this.gameStore.update(() => ({ wordGuess }))),
+			tap((wordGuess) => this.gameStore.update(() => ({ wordGuess, userGuess: this.generateEmptyGuessString(wordGuess) }))),
 			tap(() => this.gameStore.update(() => ({ loadingWords: false, status: GameStatus.Started }))),
 		).subscribe();
+	}
+
+	private generateEmptyGuessString(word: string): string {
+		let str = '';
+
+		for (let i = 0; i < word.length; i++) {
+			str += '_';
+		}
+		
+		return str;
 	}
 
 	private randomizeArray<T>(arr: T[]): T[] {

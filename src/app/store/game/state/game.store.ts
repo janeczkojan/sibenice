@@ -27,6 +27,8 @@ export type GameState = {
 	words: string[];
 	loadingWords: boolean;
 	wordGuess: string;
+	userGuess: string;
+	guessCount: number;
 };
 
 
@@ -35,7 +37,9 @@ export const createInitialState = (): GameState => ({
 	difficulty: GameDifficulty.NotSelected,
 	words: [],
 	loadingWords: false,
-	wordGuess: ''
+	wordGuess: '',
+	userGuess: '',
+	guessCount: 0
 });
 
 

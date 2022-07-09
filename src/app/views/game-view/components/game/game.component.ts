@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { GameService } from '../../../../store/game/state/game.service';
 
 
@@ -11,7 +11,7 @@ const IMAGE_SUFFIX = '.png';
 	templateUrl: './game.component.html',
 	styleUrls: ['./game.component.scss']
 })
-export class GameComponent implements OnInit {
+export class GameComponent {
 
 	@Input() word: string | null = '';
 
@@ -22,10 +22,6 @@ export class GameComponent implements OnInit {
 	constructor(
 		private readonly gameService: GameService
 	) {}
-
-	ngOnInit() {
-
-	}
 
 	get imageName(): string {
 		if (this.guessCount === undefined || this.guessCount === null) {

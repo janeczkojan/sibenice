@@ -12,8 +12,6 @@ export class WordsApiService {
 	) {}
 
 	fetchCzechWords(): Observable<string[]> {
-		return this.httpClient.get<string[]>('/assets/json/czech_words.json').pipe(
-			delay(500)
-		);
+		return this.httpClient.get<string[]>('/assets/json/czech_words.json');
 	}
 }

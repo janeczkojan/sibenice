@@ -1,1 +1,13 @@
-<p>game-settings-view works!</p>
+<div id="game-settings-view">
+	<div class="content">
+		<div class="difficulty-select">
+			<h3>Výběr obtížnosti</h3>
+
+			<div class="buttons">
+				<ng-container *ngFor="let difficulty of difficulties">
+					<button class="button" (click)="handleDifficultyButtonClick(difficulty)">{{ difficulty.name }}</button>
+				</ng-container>
+			</div>
+		</div>
+	</div>
+</div>

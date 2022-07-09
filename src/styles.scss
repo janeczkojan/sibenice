@@ -6,3 +6,26 @@
 body {
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
+
+.button {
+	width: max-content;
+	height: max-content;
+	padding: 10px;
+	background-color: lightgray;
+	border: 2px solid black;
+
+	&:hover {
+		background-color: darkgray;
+	}
+
+	&:active {
+		background-color: rgb(100, 100, 100);
+	}
+
+	&:active,
+	&:hover {
+		cursor: pointer;
+		color: white;
+	}
+}

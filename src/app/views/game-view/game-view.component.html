@@ -1,1 +1,9 @@
-<p>game-view works!</p>
+<div id="game-view">
+	<div class="content">
+		<div class="game">
+			<ng-container *ngIf="!(isLoadingWords$ | async)">
+				Hra
+			</ng-container>
+		</div>
+	</div>
+</div>

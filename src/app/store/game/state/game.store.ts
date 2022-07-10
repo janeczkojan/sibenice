@@ -21,6 +21,11 @@ export enum GameStatus {
 }
 
 
+export type UsedKeys = {
+	[key: string]: boolean;
+};
+
+
 export type GameState = {
 	status: GameStatus;
 	difficulty: GameDifficulty;
@@ -29,6 +34,7 @@ export type GameState = {
 	wordGuess: string;
 	userGuess: string;
 	guessCount: number;
+	usedKeys: UsedKeys;
 };
 
 
@@ -39,7 +45,8 @@ export const createInitialState = (): GameState => ({
 	loadingWords: false,
 	wordGuess: '',
 	userGuess: '',
-	guessCount: 0
+	guessCount: 0,
+	usedKeys: {}
 });
 
 

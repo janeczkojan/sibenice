@@ -6,10 +6,12 @@ import { GameViewComponent } from './game-view/game-view.component';
 import { StoreModule } from '../store/store.module';
 import { SharedModule } from '../shared/shared.module';
 import { GameComponent } from './game-view/components/game/game.component';
+import { AlphabetButtonsComponent } from './game-view/components/alphabet-buttons/alphabet-buttons.component';
 
 
 @NgModule({
 	declarations: [
+    	AlphabetButtonsComponent,
     	GameComponent,
 		HomeViewComponent,
   		GameSettingsViewComponent,

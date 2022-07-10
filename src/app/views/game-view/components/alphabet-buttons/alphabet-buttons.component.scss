@@ -1,0 +1,32 @@
+#alphabet-buttons {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-top: 10px;
+
+	div {
+		padding: 0 3px;
+
+		button {
+			background-color: lightgray;
+			border: 2px solid black;
+			width: 20px;
+			height: 20px;
+			text-transform: uppercase;
+
+			&:hover {
+				background-color: darkgray;
+			}
+		
+			&:active {
+				background-color: rgb(100, 100, 100);
+			}
+		
+			&:active,
+			&:hover {
+				cursor: pointer;
+				color: white;
+			}
+		}
+	}
+}

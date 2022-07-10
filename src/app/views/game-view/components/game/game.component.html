@@ -1,6 +1,14 @@
 <div id="game">
 	<div class="word-block">
-		<span *ngFor="let c of guessArray">{{ c }}</span>
+		<span *ngFor="let char of guessArray">{{ char }}</span>
+	</div>
+
+	<div>
+		<app-alphabet-buttons
+			[alphabet]="alphabet"
+			[usedKeys]="!usedKeys ? {} : usedKeys"
+			(buttonClick)="handleAlphabetButtonClick($event)"
+		></app-alphabet-buttons>
 	</div>
 
 	<div class="image-block">

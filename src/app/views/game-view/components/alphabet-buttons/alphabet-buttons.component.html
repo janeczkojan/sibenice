@@ -1,0 +1,7 @@
+<div id="alphabet-buttons">
+	<ng-container *ngFor="let char of alphabet">
+		<div>
+			<button (click)="handleButtonClick(char)">{{ char }}</button>
+		</div>
+	</ng-container>
+</div>
